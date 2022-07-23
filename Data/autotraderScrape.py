@@ -37,7 +37,7 @@ for i in range(0, total_listings, 100):
         mileage_unparsed = listing.find("div", class_="kms")
         if mileage_unparsed is not None:
             mileage = re.search(
-                '[0-9]+(,[0-9]+)?', mileage_unparsed.text.strip()).group()
+                '[0-9]+(,[0-9]+)?', mileage_unparsed.text.strip()).group().replace(",", "")
 
         price = listing.find(
             "span", id="price-amount-value").text.strip().replace("$", "").replace(",", "")
